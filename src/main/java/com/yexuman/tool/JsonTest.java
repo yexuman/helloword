@@ -41,8 +41,8 @@ public class JsonTest {
         //根节点
         ObjectNode rootNode = jsonNodeFactory.objectNode();
         //往根节点中添加普通键值对
-        rootNode.put("name","aaa");
-        rootNode.put("email","aaa@aa.com");
+        rootNode.put("name","李白");
+        rootNode.put("email","123@aa.com");
         rootNode.put("age",24);
         //往根节点中添加一个子对象
         ObjectNode petsNode = jsonNodeFactory.objectNode();
@@ -92,10 +92,10 @@ public class JsonTest {
     public static void main(String[] args) throws Exception {
         JsonTest jsonTest =new JsonTest();
         jsonTest.treeModelGenerate();
-        System.out.println("-----------------------分割线------------------------");
+        //System.out.println("-----------------------分割线------------------------");
         String jsonString ="{  \n" +
-                "        \"name\": \"aaa\",  \n" +
-                "        \"email\": \"aaa@aa.com\",  \n" +
+                "        \"name\": \"李白\",  \n" +
+                "        \"email\": \"123@aa.com\",  \n" +
                 "        \"age\": 24,  \n" +
                 "        \"pets\": {  \n" +
                 "            \"petName\": \"kitty\",  \n" +
@@ -103,7 +103,7 @@ public class JsonTest {
                 "        },  \n" +
                 "        \"skills\": [ \"java\",\"linux\",\"mysql\"]  \n" +
                 "    }  ";
-        jsonTest.treeModelParse(jsonString);
+       // jsonTest.treeModelParse(jsonString);
 
     }
 
