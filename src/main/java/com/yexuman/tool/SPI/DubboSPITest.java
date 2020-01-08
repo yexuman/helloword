@@ -5,7 +5,7 @@ import com.alibaba.dubbo.common.extension.ExtensionLoader;
 
 /**
  * @author yexuman
- * @date 2019/12/10 10:42
+ * @date 2019/12/10
  */
 public class DubboSPITest {
     public void sayHello()  {
