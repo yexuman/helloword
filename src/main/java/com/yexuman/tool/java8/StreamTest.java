@@ -1,6 +1,7 @@
 package com.yexuman.tool.java8;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -11,8 +12,32 @@ import java.util.stream.Stream;
  */
 public class StreamTest {
 
+    public static void aboutMap() {
+        HashMap<String, Integer> map
+                = new HashMap<>();
+        map.put("key1", 10000);
+        map.put("key2", 20000);
+        map.put("key3", 30000);
+        map.put("key4", 40000);
+
+        // print map details
+        System.out.println("HashMap:\n " + map.toString());
+
+        // provide value for new key which is absent
+        // using computeIfAbsent
+        Integer val3 = map.computeIfAbsent("key3", k -> 30000 + 1);
+        System.out.println(val3);
+        map.computeIfAbsent("key5", k -> 20000 + 33000);
+        Integer val6 = map.computeIfAbsent("key6", k -> 20000 * 34);
+        System.out.println(val6);
+        // print new mapping
+        System.out.println("New HashMap:\n " + map);
+    }
+
     public static void main(String[] args) {
 
+        aboutMap();
+        System.out.println("*****************************************************");
         List<List<String>> res = new ArrayList<>();
         List<String> list = new ArrayList<>();
         for (int i = 1; i < 4; i++) {
@@ -39,7 +64,7 @@ public class StreamTest {
             list3.add(i);
         }
 
-        int maxRes = list3.stream().max((o1,o2)-> o1.compareTo(o2)).get();
+        int maxRes = list3.stream().max((o1, o2) -> o1.compareTo(o2)).get();
 
         //list = list.stream().filter(e -> e.endsWith("a")).collect(Collectors.toList());
         list = list.stream().map(e -> e + "ccc").collect(Collectors.toList());
@@ -48,10 +73,10 @@ public class StreamTest {
 
 
         System.out.println(maxRes);
-        int sumList = list3.stream().reduce(0, (x,y) -> x+y);
-        System.out.println("求和："+sumList);
-        int sumList2 = list3.stream().reduce(0,  Integer::sum);
-        System.out.println("求和2："+sumList2);
+        int sumList = list3.stream().reduce(0, (x, y) -> x + y);
+        System.out.println("求和：" + sumList);
+        int sumList2 = list3.stream().reduce(0, Integer::sum);
+        System.out.println("求和2：" + sumList2);
 
 
         /**
@@ -82,9 +107,6 @@ public class StreamTest {
         System.out.println(Stream.of(1, 2, 3, 4).reduce(Integer::max).orElse(0));
         System.out.println("无初始值，求min");
         System.out.println(Stream.of(1, 2, 3, 4).reduce(Integer::min).orElse(0));
-
-
-
 
     }
 }
