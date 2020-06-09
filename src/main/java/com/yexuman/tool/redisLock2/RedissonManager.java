@@ -1,4 +1,4 @@
-package com.yexuman.tool.redisLock2;//package com.qianxin.demo.tool.redisLock2;
+package com.yexuman.tool.redisLock2;
 
 import org.redisson.Redisson;
 import org.redisson.api.RAtomicLong;
