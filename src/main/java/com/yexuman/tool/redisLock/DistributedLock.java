@@ -1,4 +1,4 @@
-package com.yexuman.tool.redisLock;//package com.qianxin.demo.tool.RedisLock;
+package com.yexuman.tool.redisLock;
 
 public interface DistributedLock {
 
