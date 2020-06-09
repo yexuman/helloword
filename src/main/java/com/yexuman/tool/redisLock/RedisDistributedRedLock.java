@@ -1,4 +1,4 @@
-package com.yexuman.tool.redisLock;//package com.qianxin.demo.tool.RedisLock;
+package com.yexuman.tool.redisLock;
 
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
