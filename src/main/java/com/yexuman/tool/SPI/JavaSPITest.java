@@ -10,7 +10,7 @@ import java.util.ServiceLoader;
 
 /**
  * SPI 机制的约定
- * 1 在 META-INF-INF/services/ 目录中创建以接口全限定名命名的文件，该文件内容为API具体实现类的全限定名
+ * 1 在 META-INF/services/ 目录中创建以接口全限定名命名的文件，该文件内容为API具体实现类的全限定名
  *
  * 2 使用 ServiceLoader 类动态加载 META-INF-INF 中的实现类
  *
