@@ -1,5 +1,7 @@
 package com.yexuman.tool.threadlocal;
 
+import java.util.concurrent.*;
+
 /**
  * @author yexuman
  * @version 1.0
@@ -17,7 +19,26 @@ public class Test2 {
          * 重写的getMap()、createMap()函数非常重要，操作的是t.inheritableThreadLocals，这两个函数在调用set(T value)和get()函数的时候起到了非常重要的作用；
          * 和ThreadLocal互不影响。
          */
-
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        Future<Boolean> future = executorService.submit(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                if (!Thread.currentThread().isInterrupted()){
+                    //业务逻辑
+                }
+                return true;
+            }
+        });
+        try {
+            Boolean o = future.get(1000, TimeUnit.MILLISECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+            future.cancel(true);
+        }
         // 父线程
         Thread parentThread = new Thread(new Runnable() {
 
@@ -52,5 +73,11 @@ public class Test2 {
 
     }
 
+    public static class MyThreadFactory implements ThreadFactory{
+        @Override
+        public Thread newThread(Runnable r) {
+            return null;
+        }
+    }
 }
 
